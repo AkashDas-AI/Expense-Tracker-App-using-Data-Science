@@ -1,0 +1,65 @@
+# Python Bytecode and Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables & Secrets
+.env
+*.env
+.env.local
+
+# Databases & Local Storage
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# Data Files & Sensitive Information
+# Protect raw, interim, and processed data
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Sample data remains tracked in git
+!data/sample/
+!data/sample/**
+
+# Machine Learning Models & Heavy Artifacts
+models/*.pkl
+models/*.joblib
+models/*.pt
+models/*.onnx
+!models/.gitkeep
+
+# Generated Outputs & Temporary Reports
+outputs/exports/*
+!outputs/exports/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+reports/figures/*
+!reports/figures/.gitkeep
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDE and OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
