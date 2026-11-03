@@ -128,6 +128,8 @@ The project delivers a data science solution meeting the following core objectiv
 
 The application adopts a decoupled six-layer software architecture:
 
+![System Architecture](images/architecture.png)
+
 ```text
 +-----------------------------------------------------------------------------------+
 |                            STREAMLIT WEB DASHBOARD                                |
@@ -223,28 +225,51 @@ Expense-Tracker-App-Data-Science/
 |   |-- TESTING.md                        # Test suite structure and verification metrics
 |   `-- USER_GUIDE.md                     # Application navigation and user manual
 |-- images/
-|   `-- .gitkeep                          # Dedicated directory for dashboard screenshots
+|   |-- .gitkeep                          # Dedicated directory for visual assets
+|   |-- anomaly_detection.png             # Dashboard Anomaly Detection view screenshot
+|   |-- architecture.png                  # 6-Layer system architecture flowchart
+|   |-- budget_analysis.png               # Dashboard Budget Analysis view screenshot
+|   |-- dashboard_overview.png            # Dashboard Overview view screenshot
+|   |-- expense_forecasting.png           # Dashboard Expense Forecasting view screenshot
+|   |-- financial_insights.png            # Dashboard Financial Insights view screenshot
+|   `-- spending_analysis.png             # Dashboard Spending Analysis view screenshot
 |-- models/
 |   `-- .gitkeep                          # Placeholder for serialized machine learning models
 |-- notebooks/
 |   |-- .gitkeep                          # Placeholder for Jupyter analysis notebooks
 |   `-- 01_exploratory_data_analysis.ipynb# Completed exploratory data analysis notebook
 |-- outputs/
-|   |-- exports/
-|   |   `-- .gitkeep                      # Placeholder for CSV and Excel data exports
-|   `-- figures/
-|       `-- .gitkeep                      # Placeholder for generated chart image files
+|   `-- exports/
+|       `-- .gitkeep                      # Dedicated directory for user runtime CSV exports
 |-- reports/
-|   `-- figures/
-|       |-- .gitkeep                      # Placeholder for analytical report figures
-|       |-- expense_amount_distribution.png
-|       |-- expense_category_distribution.png
-|       |-- monthly_income_expense.png
-|       |-- payment_method_distribution.png
-|       `-- transaction_type_distribution.png
+|   |-- analysis_report.md                # Comprehensive 12-month analytics & model evaluation report
+|   |-- figures/                          # 10 publication-quality analytical and ML figures (300 DPI)
+|   |   |-- .gitkeep
+|   |   |-- anomaly_detection.png         # Isolation Forest outlier timeline scatter
+|   |   |-- budget_vs_actual.png          # October 2026 benchmark budget vs actual variance
+|   |   |-- category_spending.png         # Cumulative expenditure breakdown across 12 categories
+|   |   |-- expense_amount_distribution.png
+|   |   |-- expense_category_distribution.png
+|   |   |-- expense_forecast.png          # 7-day rolling mean vs ARIMA 30-day forecast with CI
+|   |   |-- monthly_financial_trends.png  # 12-month income, expense, savings trajectory
+|   |   |-- monthly_income_expense.png
+|   |   |-- payment_method_distribution.png
+|   |   `-- transaction_type_distribution.png
+|   `-- results/                          # 8 reproducible numerical CSV and JSON deliverables
+|       |-- anomaly_evaluation.json       # Isolation Forest transductive and inductive metrics
+|       |-- budget_analysis.csv           # October 2026 Balanced Benchmark ledger
+|       |-- category_analysis.csv         # Per-category total, mean, median, min, max, std
+|       |-- financial_summary.csv         # Portfolio financial KPIs and transaction counts
+|       |-- forecast_evaluation.csv       # Holdout test and 28-fold walk-forward validation scores
+|       |-- forecast_predictions.csv      # Daily historical actuals and 30-day forward forecasts
+|       |-- insights_summary.json         # Automated heuristic financial hygiene findings
+|       `-- monthly_trends.csv            # 12-month cash flows, net savings, and MoM rates
+|-- scripts/
+|   `-- capture_screenshots.py            # Automated headless Chrome screenshot capture script
 |-- src/
 |   `-- expense_tracker/
 |       |-- __init__.py                   # Package export root
+|       |-- generate_reports.py           # Automated pipeline for figures, metrics, and architecture
 |       |-- analytics/
 |       |   |-- __init__.py               # Analytics subpackage exports
 |       |   |-- budget_analysis.py        # Budget variance, utilization, and summary
@@ -289,6 +314,7 @@ Expense-Tracker-App-Data-Science/
 |   |-- test_financial_metrics.py         # Core financial KPI calculation tests
 |   |-- test_forecasting.py               # Rolling mean, ARIMA, and holdout evaluation tests
 |   |-- test_insights.py                  # Financial insights heuristic tests
+|   |-- test_report_generation.py         # Automated report outputs and asset verification tests
 |   |-- test_spending_analysis.py         # Category and payment method aggregation tests
 |   |-- test_trend_analysis.py            # Monthly trends and MoM growth tests
 |   `-- test_validation.py                # Schema validation and boundary check tests
@@ -538,28 +564,31 @@ The Streamlit web application is structured into four primary views:
 
 ## 20. Dashboard Screenshots
 
-The dedicated `images/` directory holds visual assets for repository presentation.
+The Streamlit web dashboard features a modern dark theme configured for readability and contrast. High-resolution 1080p screenshots of all 6 core dashboard views are captured directly from the live application and maintained in the `images/` directory.
 
-| View | Target Image File | Status | Description |
-|---|---|---|---|
-| Overview Page | `images/dashboard_overview.png` | Placeholder Ready | Executive KPIs, monthly cash flow trajectory, and savings surplus/deficit charts. |
-| Spending Analysis | `images/spending_analysis.png` | Placeholder Ready | Category expenditure breakdown, payment channels, and ticket size skewness. |
-| Budget Analysis | `images/budget_analysis.png` | Placeholder Ready | Calendar Month Budgeting, benchmark presets, variance chart, and ledger table. |
-| Financial Insights | `images/financial_insights.png` | Placeholder Ready | Heuristic insights cards with severity badges and hygiene guidance. |
-| Anomaly Detection | `images/anomaly_detection.png` | Placeholder Ready | Isolation Forest controls, anomaly table, and benchmark confusion matrix. |
-| Expense Forecasting | `images/expense_forecasting.png` | Placeholder Ready | Out-of-sample holdout metrics, ADF diagnostics, and forward projection ribbon. |
+### 1. Financial Overview View
+Executive financial KPI cards, 12-month cash flow trajectory, payment volume breakdown, and dynamic monthly net savings surplus and deficit bars.
+![Financial Overview Dashboard](images/dashboard_overview.png)
 
-```markdown
-<!-- Example Markdown Image Reference -->
-![Dashboard Overview](images/dashboard_overview.png)
-![Spending Analysis](images/spending_analysis.png)
-![Budget Analysis](images/budget_analysis.png)
-![Financial Insights](images/financial_insights.png)
-![Anomaly Detection](images/anomaly_detection.png)
-![Expense Forecasting](images/expense_forecasting.png)
-```
+### 2. Spending Breakdown View
+Descending category expenditure bars, expense distribution donuts, payment channel shares, and ticket-size skewness.
+![Spending Analysis Dashboard](images/spending_analysis.png)
 
-*Screenshots can be placed directly into the `images/` folder to populate the visual preview in the GitHub repository.*
+### 3. Calendar Month Budget Analysis View
+Dedicated calendar month selector, benchmark presets, interactive allocation editor, and color-coded variance ledger.
+![Budget Analysis Dashboard](images/budget_analysis.png)
+
+### 4. Financial Insights View
+Evidence-based findings synthesized across spending concentration, channel reliance, and cash flow deficits.
+![Financial Insights Dashboard](images/financial_insights.png)
+
+### 5. Multivariate Anomaly Detection View
+Isolation Forest unsupervised outlier scoring, interactive contamination tuning, and flagged transaction audits.
+![Anomaly Detection Dashboard](images/anomaly_detection.png)
+
+### 6. Time-Series Expense Forecasting View
+7-day rolling mean production forecast, ARIMA benchmark comparison, and 95% empirical confidence ribbons.
+![Expense Forecasting Dashboard](images/expense_forecasting.png)
 
 ---
 
@@ -666,11 +695,34 @@ Once running, access the application in your browser at:
 http://localhost:8501
 ```
 
+### 3. Generate Analytical Figures and Numerical Results
+
+To run the automated reporting pipeline that generates all 8 numerical result files, 10 analytical figures, and the system architecture diagram:
+
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\python.exe src/expense_tracker/generate_reports.py
+```
+
+```bash
+# macOS / Linux
+python src/expense_tracker/generate_reports.py
+```
+
+### 4. Capture Dashboard Screenshots
+
+To run the automated headless Chrome capture script that saves full 1080p dark-theme dashboard screenshots:
+
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\python.exe scripts/capture_screenshots.py
+```
+
 ---
 
 ## 24. How to Run Tests
 
-The test suite contains 193 automated unit and integration tests across 13 test files.
+The test suite contains 223 automated unit and integration tests across 14 test files.
 
 ### Execute All Tests
 
@@ -682,6 +734,12 @@ The test suite contains 193 automated unit and integration tests across 13 test 
 ```bash
 # macOS / Linux
 pytest -v
+```
+
+### Execute Report and Asset Generation Tests
+
+```powershell
+.\.venv\Scripts\pytest.exe tests/test_report_generation.py -v
 ```
 
 ### Execute Dashboard Regression Tests
@@ -729,10 +787,26 @@ pytest -v
 - **Total Inflow**: Rs. 6,757,596.88 (303 transactions)
 - **Total Outflow**: Rs. 9,365,016.87 (4,697 transactions)
 - **Net Balance**: -Rs. 2,607,419.99
-- **Savings Rate**: -38.58%
+- **Savings Rate**: -38.59%
 - **Mean Expense Ticket Size**: Rs. 1,993.83
 - **Median Expense Ticket Size**: Rs. 1,021.31
-- **Top Expense Category**: Shopping (Rs. 2,178,272.58 total, 23.26% share)
+- **Top Expense Category**: Shopping (Rs. 1,827,247.05 total, 19.51% share)
+
+### Comprehensive Deliverables and Reports
+
+The full analytical study and reproducible numerical outputs are documented in:
+
+- **[Consolidated Analytics and Modeling Report](reports/analysis_report.md)**: Comprehensive 11-section empirical study covering methodology, data engineering, cash flow trends, budget variances, anomaly detection metrics, and time-series forecasting.
+- **[Numerical Results Directory (`reports/results/`)](reports/results/)**:
+  - [`financial_summary.csv`](reports/results/financial_summary.csv): Portfolio-wide health indicators and volume statistics.
+  - [`category_analysis.csv`](reports/results/category_analysis.csv): Per-category spend distributions, shares, and moments.
+  - [`monthly_trends.csv`](reports/results/monthly_trends.csv): 12-month trajectory, net savings, and MoM growth.
+  - [`budget_analysis.csv`](reports/results/budget_analysis.csv): October 2026 Balanced Benchmark variance ledger.
+  - [`anomaly_evaluation.json`](reports/results/anomaly_evaluation.json): Isolation Forest transductive and inductive metrics.
+  - [`forecast_evaluation.csv`](reports/results/forecast_evaluation.csv): Comparative model benchmarks across holdout and 28-fold walk-forward validation.
+  - [`forecast_predictions.csv`](reports/results/forecast_predictions.csv): Complete 365-day actuals + 30-day projection table with 95% CI.
+  - [`insights_summary.json`](reports/results/insights_summary.json): Automated heuristic financial hygiene findings.
+- **[Analytical Figures Directory (`reports/figures/`)](reports/figures/)**: 10 high-resolution (300 DPI) publication charts.
 
 ---
 

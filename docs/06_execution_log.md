@@ -1116,4 +1116,29 @@ This log documents every implementation step, technical decision, and milestone 
   - Streamlit health endpoint: HTTP 200 `ok`.
   - Dataset integrity: 5,000 synthetic transactions intact; no business logic or math altered.
 
+---
+
+## 2026-11-03 13:30 IST - Entry 026: Dashboard Screenshots, Analytical Visualizations, Numerical Results, and Repository Organization
+
+- **Context**: Comprehensive enhancement to generate reproducible portfolio assets: automated headless Streamlit dashboard screenshots in dark mode, publication-quality analytical figures, numerical CSV/JSON model evaluation results, consolidated technical reporting, and directory rationalization.
+- **Actions Taken**:
+  1. Audited repository output structure: removed redundant empty `outputs/figures/`, preserved `outputs/exports/` for runtime user exports, and established unified artifact directories: `images/`, `reports/figures/`, and `reports/results/`.
+  2. Enhanced `app.py` and `dashboard/forecasting.py` to support URL query parameters (`?page=` and `?tab=`), enabling deterministic deep-linking and automated headless browser navigation.
+  3. Implemented automated headless Chrome capture script (`scripts/capture_screenshots.py`) using Selenium WebDriver:
+     - Captured all 6 primary dashboard views in native dark theme at 1920x1080 resolution: `dashboard_overview.png`, `spending_analysis.png`, `budget_analysis.png`, `financial_insights.png`, `anomaly_detection.png`, and `expense_forecasting.png`.
+     - Validated non-empty render states and element presence (metrics, Plotly dark charts, tab views).
+  4. Engineered automated reproducible generation pipeline (`src/expense_tracker/generate_reports.py`):
+     - Generated 8 numerical result files in `reports/results/`: `financial_summary.csv`, `category_analysis.csv`, `monthly_trends.csv`, `budget_analysis.csv` (October 2026 Balanced Benchmark), `anomaly_evaluation.json` (transductive and inductive out-of-sample metrics), `forecast_evaluation.csv` (holdout test and 28-fold walk-forward validation across 4 models), `forecast_predictions.csv` (daily actuals + 30-day forecast bounds), and `insights_summary.json` (6 heuristic insights).
+     - Generated 10 analytical figures in `reports/figures/` at 300 DPI: 5 EDA plots (`transaction_type_distribution.png`, `expense_category_distribution.png`, `monthly_income_expense.png`, `payment_method_distribution.png`, `expense_amount_distribution.png`) and 5 Financial/ML plots (`category_spending.png`, `monthly_financial_trends.png`, `budget_vs_actual.png`, `anomaly_detection.png`, `expense_forecast.png`).
+     - Generated high-resolution 6-layer architecture flowchart (`images/architecture.png`).
+  5. Authored comprehensive, publication-grade analytical report (`reports/analysis_report.md`) covering all 11 core domains, formatted strictly with zero emojis and zero em dashes, embedding direct relative links to figures and numerical data.
+  6. Added automated unit testing suite (`tests/test_report_generation.py`) comprising 27 tests validating file existence, schema compliance, statistical moment bounds, image dimensions, and documentation integrity.
+  7. Updated `README.md` and `docs/SCREENSHOT_CHECKLIST.md` with embedded dark mode screenshots, updated directory trees, and references to all generated assets.
+- **Verification**:
+  - Full pytest suite: 223 / 223 passed in 15.39s (100% pass rate across 14 test modules).
+  - Python bytecode compilation: 0 errors across `src`, `dashboard`, `tests`, `scripts`, `app.py`.
+  - Image verification: All 6 screenshots and 10 figures verified as valid non-empty PNG files with expected resolutions.
+  - Data integrity: Core sample dataset (`data/sample/transactions.csv`) untouched; no runtime SQLite database created.
+  - Git safety: Changes kept unstaged pending user review and explicit commit approval.
+
 
