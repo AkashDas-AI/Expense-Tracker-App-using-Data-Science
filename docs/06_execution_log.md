@@ -1141,4 +1141,22 @@ This log documents every implementation step, technical decision, and milestone 
   - Data integrity: Core sample dataset (`data/sample/transactions.csv`) untouched; no runtime SQLite database created.
   - Git safety: Changes kept unstaged pending user review and explicit commit approval.
 
+---
+
+## 2026-11-03 19:30 IST - Entry 027: Local Environment Cleanup, Space Recovery, and Restoration Manual
+
+- **Context**: Post-publication cleanup and environment rationalization to recover disk storage space, remove transient runtime artifacts, and establish an explicit future restoration manual.
+- **Actions Taken**:
+  1. Audited local directory storage: measured `.venv/` at 952.75 MB, bytecode caches at 2.09 MB, and `.pytest_cache/` at 18.81 KB.
+  2. Safely removed project-local virtual environment (`.venv/`), recovering 952.75 MB across 43,892 files and 3,214 directories.
+  3. Purged `.pytest_cache/`, all recursive `__pycache__/` directories, and ephemeral development files in `scratch/`.
+  4. Verified that all core project assets remain 100% intact: source code (`src/`, `dashboard/`, `app.py`), test suite (`tests/`), sample transactions dataset (`data/sample/transactions.csv`), portfolio screenshots and architecture diagram (`images/`), analytical figures (`reports/figures/`), numerical CSV/JSON deliverables (`reports/results/`), and consolidated report (`reports/analysis_report.md`).
+  5. Authored dedicated private restoration manual (`docs/CLEANUP_AND_RESTORATION.md`) documenting disk space metrics, preserved assets, and step-by-step restoration commands for Windows PowerShell and macOS/Linux Bash.
+  6. Hardened `.gitignore` to strictly exclude `docs/CLEANUP_AND_RESTORATION.md` and restoration pattern variants from Git tracking, keeping the document local and private without displaying it in the public repository.
+- **Verification**:
+  - Total disk space recovered: ~954.86 MB (~0.95 GB).
+  - Git ignore check: `git check-ignore -v docs/CLEANUP_AND_RESTORATION.md` confirmed active exclusion.
+  - Core data integrity: `data/sample/transactions.csv` intact and unmodified.
+  - Working tree status: clean; only `.gitignore` and `docs/06_execution_log.md` tracked for public synchronization.
+
 

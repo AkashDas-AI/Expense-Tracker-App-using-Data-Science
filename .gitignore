@@ -91,3 +91,11 @@ docs/*PREPARATION*
 docs/*interview*
 docs/*prep*
 
+# Private local cleanup and environment restoration documentation (excluded from GitHub)
+docs/CLEANUP_AND_RESTORATION.md
+docs/*CLEANUP*
+docs/*RESTORATION*
+docs/*cleanup*
+docs/*restoration*
+
+
