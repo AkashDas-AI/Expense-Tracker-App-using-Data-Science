@@ -1,0 +1,16 @@
+metric,value,unit,description
+Total Income,6757596.88,INR,Sum of all recorded income transactions
+Total Expenses,9365016.87,INR,Sum of all recorded expense transactions
+Net Savings,-2607419.99,INR,Total Income minus Total Expenses
+Savings Rate,-38.59,Percent,Net Savings as a percentage of Total Income
+Expense to Income Ratio,1.3859,Ratio,Total Expenses divided by Total Income
+Total Transactions,5000,Count,Total records in portfolio dataset
+Income Transactions,303,Count,Number of income credits
+Expense Transactions,4697,Count,Number of expense debits
+Average Income Transaction,22302.30,INR,Mean value of income transactions
+Average Expense Transaction,1993.83,INR,Mean value of expense debits
+Median Expense Transaction,1021.31,INR,Median value of expense debits
+Maximum Expense Transaction,161884.82,INR,Highest single expense transaction in dataset
+Minimum Expense Transaction,60.97,INR,Lowest single expense transaction in dataset
+Date Range Start,2025-11-01,Date,Earliest recorded transaction date
+Date Range End,2026-10-31,Date,Latest recorded transaction date

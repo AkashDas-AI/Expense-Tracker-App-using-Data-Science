@@ -1,0 +1,86 @@
+[
+  {
+    "category": "CashFlow",
+    "title": "Net Cash Flow Deficit",
+    "observation": "Cumulative expenditures (\u20b99,365,016.87) exceeded total income inflows (\u20b96,757,596.88), resulting in a net deficit of \u20b92,607,419.99 (savings rate of -38.59%).",
+    "recommendation": "Review discretionary spending categories (e.g. Shopping, Travel, Entertainment) to identify curtailment opportunities and align outflows with incoming cash reserves.",
+    "severity": "CRITICAL",
+    "supporting_metric": {
+      "total_income": 6757596.88,
+      "total_expenses": 9365016.87,
+      "net_deficit": 2607419.99,
+      "savings_rate_pct": -38.59
+    },
+    "insight_id": "INS-001"
+  },
+  {
+    "category": "Spending",
+    "title": "Primary Expense Driver: Shopping",
+    "observation": "'Shopping' constitutes the largest expenditure category, accounting for \u20b91,827,247.05 (19.5% of total expenditures across 457 transactions).",
+    "recommendation": "Evaluate whether 'Shopping' expenditures represent essential structural commitments (e.g., fixed housing/education costs) or variable discretionary purchases subject to optimization.",
+    "severity": "INFO",
+    "supporting_metric": {
+      "category": "Shopping",
+      "total_amount": 1827247.05,
+      "percentage": 19.51,
+      "transaction_count": 457,
+      "average_amount": 3998.35,
+      "median_amount": 1864.04
+    },
+    "insight_id": "INS-002"
+  },
+  {
+    "category": "Spending",
+    "title": "High Expenditure Concentration",
+    "observation": "A small cluster of 2 categories accounts for 35.2% of all outflows: Shopping (19.5%), Travel (15.6%).",
+    "recommendation": "Target budgeting limits and expense tracking specifically on these dominant categories, as small percentage optimizations here yield the largest absolute monetary savings.",
+    "severity": "WARNING",
+    "supporting_metric": {
+      "concentrated_category_count": 2,
+      "combined_share_pct": 35.15
+    },
+    "insight_id": "INS-003"
+  },
+  {
+    "category": "PaymentMethod",
+    "title": "Dominant Payment Channel: UPI",
+    "observation": "39.0% of expense outflows (\u20b93,648,406.11) are transacted via UPI across 2543 transactions.",
+    "recommendation": "Ensure adequate balance and fraud monitoring on your primary UPI account, and verify if credit or reward programs can optimize frequent transactions.",
+    "severity": "INFO",
+    "supporting_metric": {
+      "payment_method": "UPI",
+      "total_amount": 3648406.11,
+      "percentage": 38.96,
+      "transaction_count": 2543,
+      "average_amount": 1434.69
+    },
+    "insight_id": "INS-004"
+  },
+  {
+    "category": "Trends",
+    "title": "Peak Monthly Expense Spike: 2025-12",
+    "observation": "The largest single-month spending increase occurred in 2025-12, surging by \u20b9194,628.18 (+23.5%) relative to the previous month.",
+    "recommendation": "Audit seasonal or periodic expenses occurring in this calendar period (e.g. annual renewals, festive shopping, or holiday travel) to build amortized sinking funds.",
+    "severity": "WARNING",
+    "supporting_metric": {
+      "month": "2025-12",
+      "absolute_spike": 194628.18,
+      "percentage_spike": 23.54
+    },
+    "insight_id": "INS-005"
+  },
+  {
+    "category": "Outliers",
+    "title": "High-Value Transaction Spikes Identified",
+    "observation": "Identified 354 expense transactions exceeding the statistical upper fence of \u20b93,957.50 (Q3 + 1.5\u00d7IQR). The peak single transaction was \u20b9161,884.82 in 'Shopping' on 2026-04-19.",
+    "recommendation": "Inspect flagged outlier transactions in the Anomaly Detection module to distinguish planned capital purchases from irregular shocks.",
+    "severity": "INFO",
+    "supporting_metric": {
+      "outlier_count": 354,
+      "upper_fence_threshold": 3957.5,
+      "peak_amount": 161884.82,
+      "peak_category": "Shopping"
+    },
+    "insight_id": "INS-006"
+  }
+]

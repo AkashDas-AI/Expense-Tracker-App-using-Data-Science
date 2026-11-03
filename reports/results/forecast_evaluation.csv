@@ -1,0 +1,8 @@
+model_name,split_type,evaluation_method,mae_inr,rmse_inr,mape_pct,is_selected_production_model,notes
+7-Day Rolling Mean Baseline,Holdout Test (80/20),Chronological Out-of-sample,9179.72,15908.52,57.79,True,Selected production model. Robust non-parametric baseline reflecting weekly seasonality.
+Naive (Last Value) Baseline,Holdout Test (80/20),Chronological Out-of-sample,8615.66,16129.58,47.5,False,Simplest baseline; vulnerable to daily variance spikes.
+Historical Mean Baseline,Holdout Test (80/20),Chronological Out-of-sample,11308.29,16781.57,81.12,False,Static mean of training expenditure; fails to track regime shifts.
+"ARIMA(1, 1, 1) Benchmark",Holdout Test (80/20),Chronological Out-of-sample,10881.64,16554.07,77.23,False,Parametric time series benchmark. Higher variance and complexity without error improvement.
+7-Day Rolling Mean Baseline,Walk-Forward Validation,"28-fold Expanding Window (Horizon 7, Step 7)",14359.63,19963.35,,True,Pre-test model selection criterion; 28 rolling validation folds.
+Naive Baseline,Walk-Forward Validation,"28-fold Expanding Window (Horizon 7, Step 7)",16207.57,23165.07,,False,Walk-forward validation candidate across 28 folds.
+Historical Mean Baseline,Walk-Forward Validation,"28-fold Expanding Window (Horizon 7, Step 7)",13791.83,19479.85,,False,Walk-forward validation candidate across 28 folds.

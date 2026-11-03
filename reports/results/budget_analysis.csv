@@ -1,0 +1,14 @@
+category,monthly_budget_target_inr,actual_spend_inr,remaining_balance_inr,absolute_variance_inr,utilization_rate_pct,over_budget_flag
+Rent,25000.0,24724.86,275.14,-275.14,98.9,False
+Groceries,12000.0,81252.76,-69252.76,69252.76,677.11,True
+Dining,6000.0,29421.38,-23421.38,23421.38,490.36,True
+Shopping,8000.0,183599.81,-175599.81,175599.81,2295.0,True
+Utilities,5000.0,97494.26,-92494.26,92494.26,1949.89,True
+Transport,4000.0,71190.19,-67190.19,67190.19,1779.75,True
+Entertainment,4000.0,60935.72,-56935.72,56935.72,1523.39,True
+Healthcare,3000.0,52817.03,-49817.03,49817.03,1760.57,True
+Education,3000.0,47722.13,-44722.13,44722.13,1590.74,True
+Subscriptions,1500.0,1718.0,-218.0,218.0,114.53,True
+Travel,10000.0,102488.55,-92488.55,92488.55,1024.89,True
+Other Expenses,3000.0,6165.44,-3165.44,3165.44,205.51,True
+PORTFOLIO TOTAL,84500.0,759530.13,-675030.13,675030.13,898.85,True

@@ -1,0 +1,116 @@
+{
+  "model_name": "Isolation Forest (sklearn.ensemble.IsolationForest)",
+  "features_count": 42,
+  "contamination_parameter": 0.02,
+  "random_seed": 42,
+  "dataset_total_samples": 5000,
+  "total_anomalies_detected": 100,
+  "anomaly_percentage": 2.0,
+  "transductive_evaluation": {
+    "precision": 0.02,
+    "recall": 0.1667,
+    "f1_score": 0.0357,
+    "confusion_matrix": {
+      "tp": 2,
+      "fp": 98,
+      "tn": 4890,
+      "fn": 10
+    },
+    "ground_truth_count": 12,
+    "predicted_count": 100,
+    "total_samples": 5000
+  },
+  "inductive_out_of_sample_evaluation": {
+    "train_samples": 4000,
+    "test_samples": 1000,
+    "train_ground_truth_count": 11,
+    "test_ground_truth_count": 1,
+    "test_predicted_count": 31,
+    "precision": 0.0323,
+    "recall": 1.0,
+    "f1_score": 0.0625,
+    "methodology_note": "Unsupervised model evaluated against synthetic ground truth labels. In the 20% holdout test split (1,000 samples), exactly 1 ground truth anomaly was present (N_pos=1) and correctly flagged (recall=100.0%). Precision is 3.23% as the model flagged 31 multivariate outliers across 42 features."
+  },
+  "top_detected_anomalies": [
+    {
+      "transaction_id": "TXN-00002",
+      "date": "2025-11-01",
+      "category": "Investment Income",
+      "amount": 12326.52,
+      "anomaly_score": -0.0888,
+      "description": "Fixed Deposit Quarterly Interest"
+    },
+    {
+      "transaction_id": "TXN-00001",
+      "date": "2025-11-01",
+      "category": "Salary",
+      "amount": 81360.06,
+      "anomaly_score": -0.0742,
+      "description": "Monthly Salary - Consulting Ltd"
+    },
+    {
+      "transaction_id": "TXN-00010",
+      "date": "2025-11-02",
+      "category": "Transport",
+      "amount": 1088.2,
+      "anomaly_score": -0.0595,
+      "description": "Fastag Highway Toll Payment"
+    },
+    {
+      "transaction_id": "TXN-00006",
+      "date": "2025-11-01",
+      "category": "Travel",
+      "amount": 7270.91,
+      "anomaly_score": -0.059,
+      "description": "Taj Hotels Weekend Booking"
+    },
+    {
+      "transaction_id": "TXN-00038",
+      "date": "2025-11-04",
+      "category": "Business Income",
+      "amount": 24096.92,
+      "anomaly_score": -0.0588,
+      "description": "E-commerce Store Revenue"
+    },
+    {
+      "transaction_id": "TXN-00004",
+      "date": "2025-11-01",
+      "category": "Dining",
+      "amount": 427.11,
+      "anomaly_score": -0.0557,
+      "description": "Third Wave Coffee Roasters"
+    },
+    {
+      "transaction_id": "TXN-00008",
+      "date": "2025-11-01",
+      "category": "Education",
+      "amount": 2965.62,
+      "anomaly_score": -0.0508,
+      "description": "Udemy Data Science Masterclass"
+    },
+    {
+      "transaction_id": "TXN-00007",
+      "date": "2025-11-01",
+      "category": "Shopping",
+      "amount": 3711.9,
+      "anomaly_score": -0.0411,
+      "description": "IKEA Home Decor & Furniture"
+    },
+    {
+      "transaction_id": "TXN-00016",
+      "date": "2025-11-02",
+      "category": "Education",
+      "amount": 5303.32,
+      "anomaly_score": -0.0404,
+      "description": "Academic Textbooks & E-books"
+    },
+    {
+      "transaction_id": "TXN-00109",
+      "date": "2025-11-09",
+      "category": "Freelance",
+      "amount": 40444.57,
+      "anomaly_score": -0.0403,
+      "description": "Upwork Client Payment - UI Design"
+    }
+  ]
+}
