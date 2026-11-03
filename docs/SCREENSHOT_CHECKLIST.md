@@ -2,6 +2,7 @@
 
 **Author: Akash Das**  
 **Project**: Expense Tracker App using Data Science  
+**Status**: Phase 8 Insights, Anomaly Detection & Forecasting Implemented  
 
 This checklist tracks screenshots and figures required for technical documentation, reports, and portfolio presentations.
 
@@ -9,21 +10,32 @@ This checklist tracks screenshots and figures required for technical documentati
 
 ## Visual Assets Checklist
 
-- [ ] **Overview Dashboard**:
-  - [ ] Executive KPI cards (Total Expenses, Monthly Savings, Burn Rate).
-  - [ ] Monthly expenditure trend bar chart.
-  - [ ] Category distribution donut chart.
-- [ ] **Spending Breakdown**:
-  - [ ] Category-level detailed bar charts.
-  - [ ] Payment method distribution pie chart.
-  - [ ] Filtered transaction tabular view.
-- [ ] **Budget Management**:
-  - [ ] Budget vs. actuals comparison chart.
-  - [ ] Color-coded category utilization progress bars (Green < 80%, Amber 80-100%, Red > 100%).
-- [ ] **Forecasting & Anomaly Detection**:
-  - [ ] 30-day expenditure forecast line plot with shaded 95% confidence interval.
-  - [ ] Scatter plot highlighting detected anomaly outliers in red.
-  - [ ] Detailed flagged transaction inspection table.
+- [ ] **Overview Page (`dashboard/overview.py`)**:
+  - [ ] Executive KPI cards (Total Income, Total Expenses, Net Savings Surplus/Deficit, Savings Rate, Total Transactions, Average Ticket Size).
+  - [ ] Monthly Trajectory grouped bar chart (Income vs. Expenditure).
+  - [ ] Cash Flow Volume & Share comparison bar chart.
+  - [ ] Monthly Net Savings bar chart with dynamic green surplus / red deficit bars and ₹0 baseline.
+  - [ ] Recent transactions preview table with masked `[UNUSUAL]` evaluation markers.
+- [ ] **Spending Breakdown Page (`dashboard/spending.py`)**:
+  - [ ] Spending snapshot metrics (Total Expenses, Top Category, Top-5 Categories Share %, Total Expense Transactions).
+  - [ ] Descending horizontal category spending bar chart.
+  - [ ] Category allocation donut chart.
+  - [ ] Detailed category table with ticket sizes and percentages.
+  - [ ] Payment channel donut chart and transaction breakdown table.
+  - [ ] Mean vs. Median ticket size skew grouped bar chart.
+- [ ] **Budget Management Page (`dashboard/budgets.py`)**:
+  - [ ] Benchmark budget preset selector and unbudgeted category toggle.
+  - [ ] Interactive category budget allocation editor (`st.data_editor`).
+  - [ ] Portfolio budget health KPIs (Planned Budget, Actual Spend, Net Balance, Utilization %).
+  - [ ] Dynamic status alert banner with category counts (`🚨 Over Budget`, `✅ Within Budget`, `⚪ Unbudgeted`).
+  - [ ] Budget vs. actuals comparison bar chart with color-coded overrun indicators.
+  - [ ] Category variance ledger table with status badges.
+- [ ] **Forecasting & Anomaly Detection Page (`dashboard/forecasting.py`)**:
+  - [ ] Tab 1: Financial Insights cards (severity badges, observations, actionable recommendations).
+  - [ ] Tab 2: Anomaly Detection controls (contamination slider, summary telemetry, ranked anomaly table with masked descriptions, ground-truth benchmark confusion matrix).
+  - [ ] Tab 3: Expense Forecasting (data sufficiency diagnostic, ADF stationarity diagnostic, out-of-sample hold-out validation table vs. 7-day rolling mean, Plotly forecast chart with 95% CI ribbon).
+- [ ] **Global Application Frame (`app.py`)**:
+  - [ ] Sidebar filters (Date Range, Transaction Types, Category multiselect, Payment Channel multiselect, Active Records Telemetry).
+  - [ ] Wide layout responsive views on desktop and mobile viewports.
 
 All final visual assets will be saved in `docs/images/`, `reports/figures/`, and `outputs/figures/`.
-

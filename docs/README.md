@@ -1,28 +1,32 @@
-# Expense Tracker App — Technical Documentation
+# Expense Tracker App - Technical Documentation Suite
 
-**Author: Akash Das**  
-**Project**: Expense Tracker App using Data Science  
+**Author:** Akash Das  
+**Project:** Expense Tracker App using Data Science  
+**Status:** Production-Ready (Phases 1-9 Completed)  
 
-Welcome to the technical documentation repository for the **Expense Tracker App**. This dedicated directory tracks all technical decisions, architecture, data pipelines, module interactions, machine learning workflows, and execution history as the project is built.
+Welcome to the technical documentation directory for the **Expense Tracker App using Data Science**. This documentation suite provides in-depth architectural specifications, schema definitions, statistical methodologies, testing reports, and operational guides.
 
 ---
 
-## 📁 Technical Documentation Suite
+## Technical Documentation Suite
 
-| Document | Description | Status |
-| :--- | :--- | :--- |
-| [PROJECT_REQUIREMENTS.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/PROJECT_REQUIREMENTS.md) | Business requirements, system scope, and core functional goals | Completed |
-| [ARCHITECTURE.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/ARCHITECTURE.md) | Modular layered design, component interactions, and storage tiers | Completed |
-| [DATA_DICTIONARY.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/DATA_DICTIONARY.md) | Transaction entity schema, attributes, constraints, and categories | Completed |
-| [METHODOLOGY.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/METHODOLOGY.md) | ETL lifecycle, ML anomaly detection, and time-series forecasting | Completed |
-| [TESTING.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/TESTING.md) | Unit test suite breakdown, validation protocols, and CI/CD workflow | Completed |
-| [USER_GUIDE.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/USER_GUIDE.md) | Installation, environment setup, and dashboard navigation walkthrough | Completed |
-| [INTERVIEW_PREPARATION.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/INTERVIEW_PREPARATION.md) | Architectural tradeoff analysis and data science interview Q&A | Completed |
-| [SCREENSHOT_CHECKLIST.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/SCREENSHOT_CHECKLIST.md) | Visual deliverables and dashboard screenshot tracking checklist | Initialized |
-| [06_execution_log.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/06_execution_log.md) | Chronological log of changes, implementations, and milestones | Maintained |
-| [01_system_architecture.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/01_system_architecture.md) | Foundation architecture notes & diagrams | Maintained |
-| [02_data_flow_pipeline.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/02_data_flow_pipeline.md) | Foundation data flow and pipeline specification | Maintained |
-| [03_modules_specification.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/03_modules_specification.md) | Detailed breakdown of application modules and functions | Maintained |
-| [04_dataset_and_preprocessing.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/04_dataset_and_preprocessing.md) | Dataset schemas, sources, preprocessing, and feature engineering | Maintained |
-| [05_model_learning_and_training.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/05_model_learning_and_training.md) | Model architecture, learning algorithms, and evaluation metrics | Maintained |
-| [07_validation_and_testing_guide.md](file:///d:/Projects/Data%20Science/Expense%20Tracker%20App/docs/07_validation_and_testing_guide.md) | Verification criteria and testing checklist | Maintained |
+| Document | Primary Focus | Target Audience |
+|---|---|---|
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | Modular system architecture, component decoupling, data flow diagrams, and interface contracts | System Architects, Senior Developers |
+| [`DATA_DICTIONARY.md`](DATA_DICTIONARY.md) | Database schema, validation rules, 42 engineered features, and data constraints | Data Engineers, Database Administrators |
+| [`METHODOLOGY.md`](METHODOLOGY.md) | Mathematical formulas, financial KPI logic, Isolation Forest anomaly detection, and time-series forecasting | Data Scientists, Quantitative Analysts |
+| [`TESTING.md`](TESTING.md) | Test suite breakdown (193 tests), coverage report, and headless Streamlit verification | QA Engineers, CI/CD Maintainers |
+| [`USER_GUIDE.md`](USER_GUIDE.md) | End-to-end installation manual, dashboard navigation, and operational procedures | End Users, Financial Analysts |
+| [`SCREENSHOT_CHECKLIST.md`](SCREENSHOT_CHECKLIST.md) | Visual asset inventory and screenshot capture guidelines for portfolio presentation | UI/UX Reviewers, Portfolio Reviewers |
+| [`06_execution_log.md`](06_execution_log.md) | Chronological development and phase audit history from Phase 1 through Phase 9 | Project Auditors, Code Reviewers |
+
+---
+
+## Architectural Principles
+
+The platform is designed around four core architectural principles:
+
+1. **Separation of Concerns**: Presentation (`app.py`, `dashboard/`) is strictly separated from analytical logic (`src/expense_tracker/analytics/`), feature engineering (`src/expense_tracker/features/`), machine learning (`src/expense_tracker/models/`), and persistence (`src/expense_tracker/database/`).
+2. **Defensive Data Integrity**: Strict 11-rule schema validation rejects malformed inputs before database persistence. Parameterized SQL queries prevent SQL injection, and database operations execute within atomic transactions.
+3. **Zero Data Leakage**: Temporal ordering is preserved across all training and evaluation splits. Backward-looking rolling statistics enforce `closed='left'` to prevent same-day lookahead leakage. Ground-truth evaluation tags (`[UNUSUAL]`) and description-derived proxy lengths are quarantined out of model matrices.
+4. **Reproducible Engineering**: The entire analytics and modeling pipeline is deterministic, backed by 193 automated unit, integration, and headless UI tests running in under 12 seconds.
