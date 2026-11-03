@@ -69,10 +69,19 @@ def main() -> None:
         "🎯 Budget Analysis",
         "📈 Forecasting & Anomalies",
     ]
+    page_param = str(st.query_params.get("page", "")).lower()
+    default_page_idx = 0
+    if "spend" in page_param:
+        default_page_idx = 1
+    elif "budget" in page_param:
+        default_page_idx = 2
+    elif any(k in page_param for k in ("forecast", "anomal", "insight")):
+        default_page_idx = 3
+
     selected_page = st.sidebar.radio(
         "Navigation",
         options=nav_options,
-        index=0,
+        index=default_page_idx,
         help="Switch between dashboard views and analytical modules.",
     )
 

@@ -133,11 +133,22 @@ def render_forecasting_page(df: Optional[pd.DataFrame] = None) -> None:
         st.warning("⚠️ No transactions match the active filter criteria. Please adjust your filters in the sidebar.")
         return
 
-    tab_insights, tab_anomalies, tab_forecasting = st.tabs([
+    tab_labels = [
         "💡 Financial Insights",
         "🚨 Anomaly Detection (Isolation Forest)",
         "⏳ Expense Forecasting",
-    ])
+    ]
+    tab_param = str(st.query_params.get("tab", "")).lower()
+    default_tab = tab_labels[0]
+    if "anomal" in tab_param:
+        default_tab = tab_labels[1]
+    elif "forecast" in tab_param:
+        default_tab = tab_labels[2]
+
+    tab_insights, tab_anomalies, tab_forecasting = st.tabs(
+        tab_labels,
+        default=default_tab,
+    )
 
     # =========================================================================
     # TAB 1: Financial Insights
