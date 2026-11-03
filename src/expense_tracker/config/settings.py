@@ -31,7 +31,7 @@ REPORTS_DIR = PROJECT_ROOT / "reports"
 DOCS_DIR = PROJECT_ROOT / "docs"
 
 # Database Configuration
-DATABASE_PATH = Path(os.getenv("DATABASE_PATH", str(DATA_DIR / "expense_tracker.db")))
+DATABASE_PATH = Path(os.getenv("DATABASE_PATH", str(PROCESSED_DATA_DIR / "expenses.db")))
 
 # Environment Settings
 APP_ENV = os.getenv("APP_ENV", "development")

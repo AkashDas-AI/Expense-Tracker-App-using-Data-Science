@@ -1,32 +1,39 @@
-# Python Bytecode and Caches
+# Byte-compiled / optimized / cache files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+
+# Testing and linting caches
 .pytest_cache/
 .coverage
 htmlcov/
 .mypy_cache/
+.ruff_cache/
 
-# Virtual Environment
+# Virtual environments
 .venv/
 venv/
 ENV/
 env/
 
-# Environment Variables & Secrets
+# Environment variables and secrets
 .env
+.env.*
 *.env
 .env.local
+!.env.example
 
-# Databases & Local Storage
+# Database files and SQLite runtime artifacts
 *.db
 *.sqlite
 *.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
 instance/
 
-# Data Files & Sensitive Information
-# Protect raw, interim, and processed data
+# Data stages and private datasets
 data/raw/*
 !data/raw/.gitkeep
 data/interim/*
@@ -34,32 +41,53 @@ data/interim/*
 data/processed/*
 !data/processed/.gitkeep
 
-# Sample data remains tracked in git
+# Sample demonstration data remains tracked in git
 !data/sample/
 !data/sample/**
 
-# Machine Learning Models & Heavy Artifacts
+# Portfolio images folder remains tracked in git
+!images/
+!images/**
+
+# Machine learning model binaries
 models/*.pkl
 models/*.joblib
 models/*.pt
 models/*.onnx
 !models/.gitkeep
 
-# Generated Outputs & Temporary Reports
+# Generated outputs and temporary exports
 outputs/exports/*
 !outputs/exports/.gitkeep
 outputs/figures/*
 !outputs/figures/.gitkeep
+
+# Reports figures (preserve .gitkeep)
 reports/figures/*
 !reports/figures/.gitkeep
 
-# Jupyter Notebook Checkpoints
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
 
-# IDE and OS Files
+# Operating system and editor artifacts
 .DS_Store
 Thumbs.db
+desktop.ini
 *.swp
 *.swo
+.idea/
+.vscode/*
+!.vscode/settings.json
+
+# Temporary logs and development scratch files
+*.log
+scratch/
+
+# Private developer interview preparation and study materials (excluded from GitHub)
+docs/INTERVIEW_PREPARATION.md
+docs/*INTERVIEW*
+docs/*PREPARATION*
+docs/*interview*
+docs/*prep*
 
