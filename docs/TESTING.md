@@ -27,12 +27,12 @@ tests/
 ├── test_spending_analysis.py         # Category spending, top-N, payment methods, cash flow breakdown (8 tests)
 ├── test_budget_analysis.py           # Budget variance, utilization, unbudgeted tracking, portfolio summary (7 tests)
 ├── test_trend_analysis.py            # Monthly trends, continuous ranges, MoM metrics, rolling trends (6 tests)
-├── test_dashboard.py                 # Data loading, masking, inclusive filters, charts, budget semantics, calendar month budgeting, app integration (42 tests)
+├── test_dashboard.py                 # Data loading, masking, inclusive filters, charts, dark theme, budget semantics, calendar month budgeting, app integration (45 tests)
 ├── test_anomaly_detection.py         # Statistical baselines, Isolation Forest, leakage invariance, out-of-sample eval (15 tests)
 ├── test_insights.py                  # Financial insights, surplus/deficit, budget overruns, configurable thresholds (7 tests)
 └── test_forecasting.py               # Time-series prep, ADF over-differencing, selected rolling mean, ARIMA, hold-out eval, walk-forward CV, MAPE/RMSE symmetry (13 tests)
 ```
-*Total permanent automated unit & integration tests: 193 tests (100% passing).*
+*Total permanent automated unit & integration tests: 196 tests (100% passing).*
 
 ---
 

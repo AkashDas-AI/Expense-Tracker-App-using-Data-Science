@@ -52,6 +52,15 @@ streamlit run app.py
 The application automatically initializes in your default web browser at:
 `http://localhost:8501`
 
+### 2.1. Professional Dark Theme and Appearance Settings
+
+The dashboard defaults to an executive dark theme configured via `.streamlit/config.toml` (`#111827` main background, `#1F2937` secondary cards, `#F9FAFB` high-contrast typography, and dark-themed Plotly charts with transparent canvases).
+
+Users can adjust theme settings via Streamlit's native interface:
+1. Click the menu icon in the top right corner of the dashboard.
+2. Select **Settings**.
+3. Under **Theme**, choose between **Dark** (default), **Light**, or **Use system setting**.
+
 ---
 
 ## 3. Sidebar Navigation & Data Filters

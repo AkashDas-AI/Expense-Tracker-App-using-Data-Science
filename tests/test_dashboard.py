@@ -795,4 +795,70 @@ def test_app_main_executes_all_four_pages_without_runtime_error(sample_transacti
             app.main()
 
 
+def test_streamlit_config_dark_theme() -> None:
+    """Verify .streamlit/config.toml defines the professional dark theme."""
+    import tomllib
+    from pathlib import Path
+
+    config_path = Path(".streamlit/config.toml")
+    assert config_path.exists(), "config.toml must exist"
+
+    with open(config_path, "rb") as f:
+        cfg = tomllib.load(f)
+
+    assert "theme" in cfg, "config.toml must contain [theme] section"
+    theme = cfg["theme"]
+    assert theme.get("base") == "dark", "Base theme must be dark"
+    assert theme.get("backgroundColor") == "#111827", "Background must be dark charcoal #111827"
+    assert theme.get("secondaryBackgroundColor") == "#1f2937", "Secondary background must be #1f2937"
+    assert theme.get("textColor") == "#f9fafb", "Text color must be off-white #f9fafb"
+    assert theme.get("primaryColor") == "#60a5fa", "Primary accent must be professional blue #60a5fa"
+
+
+def test_charts_dark_theme_attributes(sample_transactions_df: pd.DataFrame) -> None:
+    """Verify dashboard charts apply consistent dark theme properties."""
+    from dashboard.charts import (
+        BG_CARD,
+        BG_PAPER,
+        BG_PLOT,
+        GRID_COLOR,
+        TEXT_PRIMARY,
+        create_category_avg_median_chart,
+        create_category_spending_bar_chart,
+        create_income_vs_expense_chart,
+        create_monthly_savings_chart,
+        create_monthly_trends_chart,
+    )
+
+    charts = [
+        create_income_vs_expense_chart(sample_transactions_df),
+        create_monthly_trends_chart(sample_transactions_df),
+        create_monthly_savings_chart(sample_transactions_df),
+        create_category_spending_bar_chart(sample_transactions_df),
+        create_category_avg_median_chart(sample_transactions_df),
+    ]
+
+    for fig in charts:
+        assert fig.layout.paper_bgcolor == BG_PAPER
+        assert fig.layout.plot_bgcolor == BG_PLOT
+        assert fig.layout.font.color == TEXT_PRIMARY
+        assert fig.layout.hoverlabel.bgcolor == BG_CARD
+        assert fig.layout.xaxis.gridcolor == GRID_COLOR
+        assert fig.layout.yaxis.gridcolor == GRID_COLOR
+
+
+def test_chart_empty_state_dark_theme() -> None:
+    """Verify empty chart states apply dark theme and readable muted annotations."""
+    from dashboard.charts import BG_PAPER, BG_PLOT, TEXT_MUTED, create_income_vs_expense_chart
+
+    empty_df = pd.DataFrame(columns=["date", "amount", "type", "category", "payment_method"])
+    fig = create_income_vs_expense_chart(empty_df)
+
+    assert fig.layout.paper_bgcolor == BG_PAPER
+    assert fig.layout.plot_bgcolor == BG_PLOT
+    assert len(fig.layout.annotations) > 0
+    assert fig.layout.annotations[0].font.color == TEXT_MUTED
+
+
+
 

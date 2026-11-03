@@ -101,7 +101,7 @@ The project delivers a data science solution meeting the following core objectiv
 | Financial Insights | `src/expense_tracker/analytics/insights.py` | Configurable heuristics for category concentration, channel dependency, MoM acceleration, and outlier spikes. |
 | Anomaly Detection | `src/expense_tracker/models/anomaly_detection.py` | Isolation Forest with 2% contamination heuristic, Tukey IQR and Z-score baselines, holdout evaluation. |
 | Expense Forecasting | `src/expense_tracker/models/forecasting.py` | 7-day rolling mean baseline, naive baseline, experimental ARIMA(1, 1, 1), 28-fold walk-forward CV. |
-| Web Dashboard | `app.py`, `dashboard/` | 4 multi-page Streamlit views, Plotly charts, sidebar date/category/channel filters, container-safe layout. |
+| Web Dashboard | `app.py`, `dashboard/` | 4 multi-page Streamlit views, Plotly charts, executive dark theme, sidebar date/category/channel filters, container-safe layout. |
 | Automated Testing | `tests/` | 193 unit and integration tests with Pytest covering loaders, analytics, models, and dashboard rendering. |
 
 ---

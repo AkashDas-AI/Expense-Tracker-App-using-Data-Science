@@ -1095,3 +1095,25 @@ This log documents every implementation step, technical decision, and milestone 
   - Code/doc scanning: 0 em dashes, 0 emojis in documentation.
   - Active docs suite: `ARCHITECTURE.md`, `DATA_DICTIONARY.md`, `METHODOLOGY.md`, `TESTING.md`, `USER_GUIDE.md`, `SCREENSHOT_CHECKLIST.md`, `06_execution_log.md`, `README.md`, and local `INTERVIEW_PREPARATION.md`.
 
+---
+
+## 2026-11-03 08:10 IST - Entry 025: Professional Dark Theme Implementation
+
+- **Context**: Visual enhancement introducing an executive dark theme across the multi-page Streamlit dashboard and interactive Plotly visualizations for portfolio presentation.
+- **Actions Taken**:
+  1. Inspected `.streamlit/config.toml`, dashboard pages (`overview.py`, `spending.py`, `budgets.py`, `forecasting.py`), and `charts.py`.
+  2. Updated `.streamlit/config.toml` to configure Streamlit native dark theme: `base = "dark"`, `primaryColor = "#60a5fa"`, `backgroundColor = "#111827"`, `secondaryBackgroundColor = "#1f2937"`, `textColor = "#f9fafb"`.
+  3. Overhauled `dashboard/charts.py` to establish an integrated professional dark theme:
+     - Configured `TEMPLATE_THEME = "plotly_dark"` with transparent canvases (`paper_bgcolor = "rgba(0,0,0,0)"`, `plot_bgcolor = "rgba(0,0,0,0)"`) to blend seamlessly with Streamlit containers.
+     - Implemented `apply_chart_theme()` ensuring crisp off-white labels (`#f9fafb`), secondary axis text (`#d1d5db`), subtle slate gridlines (`#374151`), dark tooltip cards (`#1f2937`), and baseline markers (`#4b5563`).
+     - Enhanced series contrasts across all 9 charts: cash flow, monthly trajectories, net savings, category Pareto bars, allocation donuts, payment channels, mean/median ticket skewness, budget variance, and 30-day forecasting ribbons.
+  4. Added dedicated automated tests in `tests/test_dashboard.py` validating dark theme TOML configuration, chart layout properties, and empty state styling (suite expanded from 193 to 196 tests).
+  5. Updated `docs/USER_GUIDE.md` with Section 2.1 detailing dark theme appearance and native Streamlit theme selection.
+  6. Verified Streamlit server startup and health check (HTTP 200 `ok`).
+- **Verification**:
+  - Full pytest suite: 196 / 196 passed (100% pass rate across 13 test files).
+  - Bytecode compilation: 0 errors across `src`, `dashboard`, `tests`, `app.py`.
+  - Streamlit health endpoint: HTTP 200 `ok`.
+  - Dataset integrity: 5,000 synthetic transactions intact; no business logic or math altered.
+
+
