@@ -56,15 +56,15 @@ models/*.pt
 models/*.onnx
 !models/.gitkeep
 
-# Generated outputs and temporary exports
+# Generated outputs and temporary exports (exports folder preserved for runtime user exports)
 outputs/exports/*
 !outputs/exports/.gitkeep
-outputs/figures/*
-!outputs/figures/.gitkeep
 
-# Reports figures (preserve .gitkeep)
-reports/figures/*
-!reports/figures/.gitkeep
+# Analytical figures and numerical results are tracked for portfolio presentation
+!reports/figures/
+!reports/figures/**
+!reports/results/
+!reports/results/**
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
